@@ -15,6 +15,12 @@ public static class SceneMenu
         OpenScene("Factory");
     }
 
+    [MenuItem("Scenes/Telephone")]
+    public static void OpenTelephone()
+    {
+        OpenScene("Telephone");
+    }
+
     private static void OpenScene(string sceneName)
     {
         EditorSceneManager.OpenScene("Assets/Scenes/Persistent.unity", OpenSceneMode.Single);

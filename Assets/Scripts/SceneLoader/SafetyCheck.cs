@@ -6,6 +6,7 @@ using UnityEngine;
 public class SafetyCheck : MonoBehaviour
 {
     public List<MeshRenderer> meshes;
+    public LayerMask layer;
 
     private float safetyRange = 3f;
     // 나눗셈 연산을 한번만 실행시키기 위한 변수
@@ -14,6 +15,13 @@ public class SafetyCheck : MonoBehaviour
     private void Start()
     {
         reciprocalSafetyRange = 1 / safetyRange;
+        GameObject[] Warnings = GameObject.FindGameObjectsWithTag("Warning");
+
+        for (int i = 0; i < Warnings.Length; i++)
+        {
+            meshes.Add(Warnings[i].GetComponent<MeshRenderer>());
+        }
+
     }
 
     void Update()
@@ -26,37 +34,28 @@ public class SafetyCheck : MonoBehaviour
 
         float dangerDegree = 0f;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, safetyRange))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, safetyRange, layer))
         {
-            if (hit.collider.gameObject.isStatic)
-            {
                 float dis = hit.distance;
                 dangerDegree = (safetyRange - dis) * reciprocalSafetyRange;
 
                 SetAlpha(meshes, dangerDegree);
-            }
         }
 
-        if (Physics.Raycast(transform.position, transform.forward + transform.right, out hit, safetyRange))
+        if (Physics.Raycast(transform.position, transform.forward + transform.right, out hit, safetyRange, layer))
         {
-            if (hit.collider.gameObject.isStatic)
-            {
-                float dis = hit.distance;
-                float newDangerDegree = (safetyRange - dis) * reciprocalSafetyRange;
+            float dis = hit.distance;
+            float newDangerDegree = (safetyRange - dis) * reciprocalSafetyRange;
 
-                if(newDangerDegree > dangerDegree) SetAlpha(meshes, newDangerDegree);
-            }
+            if(newDangerDegree > dangerDegree) SetAlpha(meshes, newDangerDegree);
         }
 
-        if (Physics.Raycast(transform.position, transform.forward - transform.right, out hit, safetyRange))
+        if (Physics.Raycast(transform.position, transform.forward - transform.right, out hit, safetyRange, layer))
         {
-            if (hit.collider.gameObject.isStatic)
-            {
-                float dis = hit.distance;
-                float newDangerDegree = (safetyRange - dis) * reciprocalSafetyRange;
+            float dis = hit.distance;
+            float newDangerDegree = (safetyRange - dis) * reciprocalSafetyRange;
 
-                if (newDangerDegree > dangerDegree) SetAlpha(meshes, newDangerDegree);
-            }
+            if (newDangerDegree > dangerDegree) SetAlpha(meshes, newDangerDegree);
         }
 
     }

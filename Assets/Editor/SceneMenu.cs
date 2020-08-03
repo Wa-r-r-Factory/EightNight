@@ -3,16 +3,16 @@ using UnityEditor.SceneManagement;
 
 public static class SceneMenu
 {
-    [MenuItem("Scenes/Menu")]
-    public static void OpenMenu()
+    [MenuItem("Scenes/Theatre")]
+    public static void OpenTheatre()
     {
-        OpenScene("Menu");
+        OpenScene("Theatre");
     }
 
     [MenuItem("Scenes/Factory")]
-    public static void OpenGame()
+    public static void OpenFactory()
     {
-        OpenScene("FactoryBuild");
+        OpenScene("Factory");
     }
 
     private static void OpenScene(string sceneName)

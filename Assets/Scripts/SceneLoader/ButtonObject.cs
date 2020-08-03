@@ -1,22 +1,20 @@
 ﻿using UnityEngine;
 
-public class ButtonObject : MonoBehaviour
+public class SceneCaller : MonoBehaviour
 {
-    public Animator animator;
-
-    public void LoadGame()
-    {
-        SceneLoader.Instance.LoadNewScene("FactoryBuild");
-    }
-
     public void LoadTheatre()
     {
-        SceneLoader.Instance.LoadNewScene("Menu");
+        SceneLoader.Instance.LoadNewScene("Theatre");
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void LoadFactory()
     {
-        LoadGame();
-        animator.SetTrigger("Click");
+        SceneLoader.Instance.LoadNewScene("Factory");
+    }
+
+
+    public void LoadTelephone()
+    {
+        SceneLoader.Instance.LoadNewScene("Telephone");
     }
 }

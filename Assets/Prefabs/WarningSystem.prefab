@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 4750415182889980007}
   m_Layer: 8
   m_Name: Structure
-  m_TagString: Untagged
+  m_TagString: Warning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 4750415183227943577}
   - component: {fileID: 4750415183227943576}
   - component: {fileID: 4750415183227943579}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Warning
   m_TagString: Warning
   m_Icon: {fileID: 0}

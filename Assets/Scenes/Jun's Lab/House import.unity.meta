@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/Jun's Lab/House import.unity.meta
 guid: fad11a082d7aa824fbcf4efd59826f1a
+=======
+guid: cba4136214fec4249a9b1f7d0b5176e3
+folderAsset: yes
+>>>>>>> bfca905b7ad625d9ed162a7e966de9ae7fecead4:Assets/Materials/Materials.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

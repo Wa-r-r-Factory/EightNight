@@ -28,6 +28,8 @@ public class ProductPoolingManager : MonoBehaviour
 
             product.SetActive(false);
         }
+
+        parentObject.transform.parent = GameObject.Find("Factory").transform;
     }
 
     public void InsertQueue(GameObject product)

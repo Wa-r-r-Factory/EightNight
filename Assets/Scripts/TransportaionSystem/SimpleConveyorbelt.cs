@@ -5,7 +5,7 @@ using UnityEngine;
 public class SimpleConveyorbelt : MonoBehaviour
 {
     public float speed = 0.5f; // 속도
-    public Vector3 direction; // 작동 방향
+    public int isReverse = 1;
 
     private Rigidbody rigid;
 
@@ -17,12 +17,12 @@ public class SimpleConveyorbelt : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 pos = rigid.position;
-        rigid.position += direction * -speed * Time.fixedDeltaTime;
+        rigid.position += transform.forward * isReverse * -speed * Time.fixedDeltaTime;
         rigid.MovePosition(pos);
     }
 
     public void TurnDirection()
     {
-        direction = -1 * direction;
+        isReverse *= -1;
     }
 }

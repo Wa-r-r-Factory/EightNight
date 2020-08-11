@@ -16,7 +16,7 @@ public class DialogManager : MonoBehaviour
 
     public void Start()
     {
-        SettingUI(false);
+        //SettingUI(false);
     }
 
     public void ShowDialog()

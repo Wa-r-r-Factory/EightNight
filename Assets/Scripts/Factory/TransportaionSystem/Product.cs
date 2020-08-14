@@ -9,6 +9,7 @@ public class Product : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Finish")) StartCoroutine(DisableProduct());
+        if (other.CompareTag("Stamp")) Processing();
     }
 
     private void OnEnable()
@@ -26,4 +27,10 @@ public class Product : MonoBehaviour
         yield return null;
         ProductPoolingManager.instance.InsertQueue(gameObject);
     }
+
+    private void Processing()
+    {
+        
+    }
+
 }

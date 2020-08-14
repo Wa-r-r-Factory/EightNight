@@ -5,11 +5,14 @@ using UnityEngine;
 public class Product : MonoBehaviour
 {
     Rigidbody rigid = null;
+    MeshRenderer mesh = null;
+
+    public Material processedMaterial;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Finish")) StartCoroutine(DisableProduct());
-        if (other.CompareTag("Stamp")) Processing();
+        if(other.CompareTag("Stamp")) Processing();
     }
 
     private void OnEnable()
@@ -19,7 +22,14 @@ public class Product : MonoBehaviour
             rigid = GetComponent<Rigidbody>();
         }
 
+        if(mesh == null)
+        {
+            mesh = GetComponent<MeshRenderer>();
+        }
+
+
         rigid.velocity = Vector3.zero;
+        
     }
 
     IEnumerator DisableProduct()
@@ -30,7 +40,7 @@ public class Product : MonoBehaviour
 
     private void Processing()
     {
-        
+        mesh.material = processedMaterial;
     }
 
 }

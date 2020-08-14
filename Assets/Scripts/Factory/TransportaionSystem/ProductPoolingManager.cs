@@ -20,7 +20,7 @@ public class ProductPoolingManager : MonoBehaviour
         parentObject.name = "Object Pool";
         
 
-        for (int i = 0; i < 500; i++)
+        for (int i = 0; i < 1000; i++)
         {
             GameObject product = Instantiate(productPrefab, Vector3.zero, Quaternion.identity);
             myQueue.Enqueue(product);

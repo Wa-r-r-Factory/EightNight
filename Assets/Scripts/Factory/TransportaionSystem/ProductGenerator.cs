@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ProductGenerator : MonoBehaviour
 {
+    public float genTime = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,7 @@ public class ProductGenerator : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(genTime);
             GameObject product = ProductPoolingManager.instance.GetQueue();
             product.transform.position = transform.position;
             product.transform.rotation = transform.rotation;

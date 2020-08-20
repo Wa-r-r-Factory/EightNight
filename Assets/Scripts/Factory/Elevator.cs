@@ -12,6 +12,7 @@ public class Elevator : MonoBehaviour
 
     private Transform playerCharater;
     private bool isActivate = false;
+    public bool isDoorOpen = true;
 
     private void Start()
     {
@@ -50,6 +51,11 @@ public class Elevator : MonoBehaviour
 
     IEnumerator ElevateUp(float upLimit)
     {
+        while (isDoorOpen)
+        {
+            yield return null;
+        }
+
         if (!isActivate)
         {
             isActivate = true;
@@ -68,6 +74,11 @@ public class Elevator : MonoBehaviour
 
     IEnumerator ElevateDown(float downLimit)
     {
+        while (isDoorOpen)
+        {
+            yield return null;
+        }
+
         if (!isActivate)
         {
             isActivate = true;

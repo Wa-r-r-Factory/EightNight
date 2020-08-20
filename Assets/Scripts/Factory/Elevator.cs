@@ -11,7 +11,7 @@ public class Elevator : MonoBehaviour
     public float[] floorLevels;
 
     private Transform playerCharater;
-    private bool isActivate = false;
+    public bool isActivate = false;
     public bool isDoorOpen = true;
 
     private void Start()

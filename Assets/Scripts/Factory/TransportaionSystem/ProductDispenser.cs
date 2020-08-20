@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class ProductDispenser : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform outputPoint;
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        StartCoroutine(Dispense(other.gameObject));
     }
 
-    // Update is called once per frame
-    void Update()
+
+    IEnumerator Dispense(GameObject product)
     {
-        
+        product.SetActive(false);
+        product.transform.position = outputPoint.position;
+
+        yield return new WaitForSeconds(1f);
+
+        product.SetActive(true);
     }
 }

@@ -8,7 +8,7 @@ public class SafetyCheck : MonoBehaviour
     public List<MeshRenderer> meshes;
     public LayerMask layer;
 
-    private float safetyRange = 3f;
+    private float safetyRange = 1f;
     // 나눗셈 연산을 한번만 실행시키기 위한 변수
     private float reciprocalSafetyRange;
 

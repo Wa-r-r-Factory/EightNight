@@ -2,9 +2,9 @@
 
 public class SceneCaller : MonoBehaviour
 {
-    public void LoadTheatre()
+    public void LoadHouse()
     {
-        SceneLoader.Instance.LoadNewScene("Theatre");
+        SceneLoader.Instance.LoadNewScene("House");
     }
 
     public void LoadFactory()
@@ -12,7 +12,7 @@ public class SceneCaller : MonoBehaviour
         SceneLoader.Instance.LoadNewScene("Factory");
     }
 
-
+    
     public void LoadTelephone()
     {
         SceneLoader.Instance.LoadNewScene("Telephone");

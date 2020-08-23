@@ -11,6 +11,6 @@ public class BuildLoader : MonoBehaviour
 
     private void LoadPersistent()
     {
-        SceneManager.LoadSceneAsync("Theatre", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("House", LoadSceneMode.Additive);
     }
 }

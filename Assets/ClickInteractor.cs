@@ -19,7 +19,24 @@ public class ClickInteractor : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
 
-            if(Physics.Raycast(ray, out hit, 2))
+
+            #region 버튼
+            if (Physics.Raycast(ray, out hit, 2))
+            {
+                Debug.Log("맞았어");
+
+                MyButton button = hit.transform.GetComponent<MyButton>();
+                if (button != null)
+                {
+                    Debug.Log("좋았어");
+
+                    button.Click();
+                }
+            }
+            #endregion
+
+            #region 엘레베이터 버튼
+            if (Physics.Raycast(ray, out hit, 2))
             {
                 Debug.Log("맞았어");
 
@@ -31,6 +48,7 @@ public class ClickInteractor : MonoBehaviour
                     button.Move();
                 }
             }
+            #endregion
 
             #region Grab
             if (isGrabbing)

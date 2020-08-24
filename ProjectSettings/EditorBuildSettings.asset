@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Factory.unity
     guid: 08e5072bbd309e14bba92d5d70b41ebf
+  - enabled: 1
+    path: Assets/Scenes/Telephone.unity
+    guid: 054ea5bc1e3013143bfc4eea48e4709b
   m_configObjects: {}

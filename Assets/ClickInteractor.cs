@@ -16,6 +16,23 @@ public class ClickInteractor : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+
+            if(Physics.Raycast(ray, out hit, 2))
+            {
+                Debug.Log("맞았어");
+
+                ElevatorButton button = hit.transform.GetComponent<ElevatorButton>();
+                if (button != null)
+                {
+                    Debug.Log("좋았어");
+
+                    button.Move();
+                }
+            }
+
+            #region Grab
             if (isGrabbing)
             {
                 grabbedObject.transform.parent = originParant;
@@ -30,10 +47,6 @@ public class ClickInteractor : MonoBehaviour
                 return;
             }
 
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth/2, Camera.main.pixelHeight/2));
-
-            Debug.Log("쏴요");
 
             if(Physics.Raycast(ray, out hit, 2))
             {
@@ -41,7 +54,6 @@ public class ClickInteractor : MonoBehaviour
                 {
                     Rigidbody hit_Rigidbody = hit.transform.GetComponent<Rigidbody>();
 
-                    Debug.Log("잡아유");
                     originParant = hit.transform.parent;
                     grabbedObject = hit.transform.gameObject;
 
@@ -55,6 +67,7 @@ public class ClickInteractor : MonoBehaviour
                     isGrabbing = true;
                 }
             }
+            #endregion 
         }
     }
 }

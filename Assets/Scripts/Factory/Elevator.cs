@@ -9,6 +9,7 @@ public class Elevator : MonoBehaviour
 
     public float speed = 1f;
     public float[] floorLevels;
+    public Door door;
 
     private Transform playerCharater;
     public bool isActivate = false;
@@ -51,6 +52,8 @@ public class Elevator : MonoBehaviour
 
     IEnumerator ElevateUp(float upLimit)
     {
+        door.DoorClose();
+
         while (isDoorOpen)
         {
             yield return null;
@@ -74,6 +77,9 @@ public class Elevator : MonoBehaviour
 
     IEnumerator ElevateDown(float downLimit)
     {
+        door.DoorClose();
+
+        Debug.Log("가자");
         while (isDoorOpen)
         {
             yield return null;

@@ -310,7 +310,7 @@ public class FirstPersonAIO : MonoBehaviour {
         #endregion
 
         #region Movement Settings - Start  
-        capsule.radius = capsule.height/4;
+        capsule.radius = capsule.height/6;
         staminaInternal = staminaLevel;
         advanced.zeroFrictionMaterial = new PhysicMaterial("Zero_Friction");
         advanced.zeroFrictionMaterial.dynamicFriction =0;

@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd0bb729cb6159b4ab21c5f62cad24ee, type: 3}
+  - {fileID: 239378781582670930, guid: d85ecc41a5cc55341bb079bfea497551, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,8 +89,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7062888831737633045}
   - component: {fileID: 7062888831737633032}
-  - component: {fileID: 7062888831737633035}
-  - component: {fileID: 7062888831737633034}
   - component: {fileID: 3274499657487768415}
   m_Layer: 0
   m_Name: Cube
@@ -127,58 +125,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7062888831737633035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7062888831737633044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63c897c097799da4a900032ad3471c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingButtonVisuals: {fileID: 7062888831737633044}
-  distanceSpaceMode: 1
-  startPushDistance: -0.5
-  maxPushDistance: -0.1
-  pressDistance: -0.11
-  releaseDistanceDelta: -0.2
-  returnSpeed: 25
-  releaseOnTouchEnd: 1
-  enforceFrontPush: 1
-  TouchBegin:
-    m_PersistentCalls:
-      m_Calls: []
-  TouchEnd:
-    m_PersistentCalls:
-      m_Calls: []
-  ButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  ButtonReleased:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &7062888831737633034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7062888831737633044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c748f3768ab714a8449b60fb9edc5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventsToReceive: 0
-  debounceThreshold: 0.01
-  localForward: {x: -0, y: 1, z: 0}
-  localUp: {x: 0, y: 0, z: -1}
-  localCenter: {x: 0, y: 0.5, z: 0}
-  bounds: {x: 1, y: 1}
-  touchableCollider: {fileID: 7062888831737633032}
 --- !u!82 &3274499657487768415
 AudioSource:
   m_ObjectHideFlags: 0

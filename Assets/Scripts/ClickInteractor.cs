@@ -6,24 +6,50 @@ public class ClickInteractor : MonoBehaviour
 {
     public Transform cameraTransform;
 
+    public Sprite defaultCrosshair;
+    public Sprite activeCrosshair;
+
     private Transform originParant;
+
+    private FirstPersonAIO firstPerson;
 
     private bool isGrabbing = false;
 
     private GameObject grabbedObject;
 
+    private void Start()
+    {
+        firstPerson = GetComponent<FirstPersonAIO>();
+    }
+
     void Update()
     {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+
+
+        if (Physics.Raycast(ray, out hit, 2))
+        {
+            if(hit.transform.CompareTag("Grabbable") || hit.transform.CompareTag("Click"))
+            {
+                Debug.Log("바까");
+                firstPerson.crossHair.sprite = activeCrosshair;
+            }
+            else
+            {
+                firstPerson.crossHair.sprite = defaultCrosshair;
+            }
+        }
+        else
+        {
+            firstPerson.crossHair.sprite = defaultCrosshair;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
-
-
             #region 버튼
             if (Physics.Raycast(ray, out hit, 2))
             {
-                Debug.Log("맞았어");
 
                 MyButton button = hit.transform.GetComponent<MyButton>();
                 if (button != null)
@@ -66,7 +92,7 @@ public class ClickInteractor : MonoBehaviour
             }
 
 
-            if(Physics.Raycast(ray, out hit, 2))
+            if (Physics.Raycast(ray, out hit, 2))
             {
                 if (!isGrabbing && hit.transform.CompareTag("Grabbable"))
                 {
@@ -85,7 +111,7 @@ public class ClickInteractor : MonoBehaviour
                     isGrabbing = true;
                 }
             }
-            #endregion 
+            #endregion
         }
     }
 }

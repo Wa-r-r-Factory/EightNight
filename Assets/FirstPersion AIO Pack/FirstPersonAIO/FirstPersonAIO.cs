@@ -243,6 +243,8 @@ public class FirstPersonAIO : MonoBehaviour {
 
     #endregion
 
+    public Image crossHair;
+
     #endregion
 
     private void Awake(){
@@ -282,7 +284,7 @@ public class FirstPersonAIO : MonoBehaviour {
             canvas.transform.position = Vector3.zero;
 
             if(autoCrosshair){
-                Image crossHair = new GameObject("Crosshair").AddComponent<Image>();
+                crossHair = new GameObject("Crosshair").AddComponent<Image>();
                 crossHair.sprite = Crosshair;
                 crossHair.rectTransform.sizeDelta = new Vector2(25,25);
                 crossHair.transform.SetParent(canvas.transform);

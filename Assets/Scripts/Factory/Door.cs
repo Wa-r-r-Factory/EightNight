@@ -38,7 +38,7 @@ public class Door : MonoBehaviour
         }
         elevator.isDoorOpen = false;
         yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => elevator.isActivate == false);
+        yield return new WaitUntil(() => !elevator.isActivate);
 
         DoorOpen(2f);
     }

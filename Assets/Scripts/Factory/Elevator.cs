@@ -12,12 +12,18 @@ public class Elevator : MonoBehaviour
     public Door door;
 
     private Transform playerCharater;
+    private AudioSource audio;
+    private AudioClipCarrier clipCarrier;
+    [HideInInspector]
     public bool isActivate = false;
+    [HideInInspector]
     public bool isDoorOpen = true;
 
     private void Start()
     {
         playerCharater = GameObject.FindWithTag("Player").transform;
+        audio = GetComponent<AudioSource>();
+        clipCarrier = GetComponent<AudioClipCarrier>();
     }
 
     public void Elevate(int floor)
@@ -53,6 +59,7 @@ public class Elevator : MonoBehaviour
     IEnumerator ElevateUp(float upLimit)
     {
         door.DoorClose();
+        audio.PlayOneShot(clipCarrier.clips[0]);
 
         while (isDoorOpen)
         {
@@ -62,6 +69,7 @@ public class Elevator : MonoBehaviour
         if (!isActivate)
         {
             isActivate = true;
+            audio.PlayOneShot(clipCarrier.clips[1]);
 
             while (transform.position.y <= upLimit)
             {
@@ -70,7 +78,13 @@ public class Elevator : MonoBehaviour
                 yield return null;
             }
 
+            audio.Stop();
+            audio.PlayOneShot(clipCarrier.clips[2]);
+
+            yield return new WaitWhile(() => audio.isPlaying);
             isActivate = false;
+
+            audio.PlayOneShot(clipCarrier.clips[3]);
         }
         yield return null;
     }
@@ -78,8 +92,9 @@ public class Elevator : MonoBehaviour
     IEnumerator ElevateDown(float downLimit)
     {
         door.DoorClose();
+        audio.PlayOneShot(clipCarrier.clips[0]);
 
-        Debug.Log("가자");
+
         while (isDoorOpen)
         {
             yield return null;
@@ -88,6 +103,8 @@ public class Elevator : MonoBehaviour
         if (!isActivate)
         {
             isActivate = true;
+            audio.PlayOneShot(clipCarrier.clips[1]);
+
 
             while (transform.position.y >= downLimit)
             {
@@ -96,7 +113,14 @@ public class Elevator : MonoBehaviour
                 yield return null;
             }
 
+            audio.Stop();
+            audio.PlayOneShot(clipCarrier.clips[2]);
+
+            yield return new WaitWhile(() => audio.isPlaying);
             isActivate = false;
+
+            audio.PlayOneShot(clipCarrier.clips[3]);
+
         }
         yield return null;
     }

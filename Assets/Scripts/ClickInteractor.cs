@@ -9,6 +9,12 @@ public class ClickInteractor : MonoBehaviour
     public Sprite defaultCrosshair;
     public Sprite activeCrosshair;
 
+    public AudioClip grabSound;
+    public AudioClip releaseSound;
+    public AudioClip buttonSound;
+
+    private AudioSource audio;
+
     private Transform originParant;
 
     private FirstPersonAIO firstPerson;
@@ -20,6 +26,7 @@ public class ClickInteractor : MonoBehaviour
     private void Start()
     {
         firstPerson = GetComponent<FirstPersonAIO>();
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -27,7 +34,7 @@ public class ClickInteractor : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
 
-
+        #region 인디케이터
         if (Physics.Raycast(ray, out hit, 2))
         {
             if(hit.transform.CompareTag("Grabbable") || hit.transform.CompareTag("Click"))
@@ -44,6 +51,7 @@ public class ClickInteractor : MonoBehaviour
         {
             firstPerson.crossHair.sprite = defaultCrosshair;
         }
+        #endregion
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -54,9 +62,9 @@ public class ClickInteractor : MonoBehaviour
                 MyButton button = hit.transform.GetComponent<MyButton>();
                 if (button != null)
                 {
-                    Debug.Log("좋았어");
 
                     button.Click();
+                    audio.PlayOneShot(buttonSound);
                 }
             }
             #endregion
@@ -82,6 +90,7 @@ public class ClickInteractor : MonoBehaviour
                 grabbedObject.transform.parent = originParant;
 
                 grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+                audio.PlayOneShot(releaseSound);
 
                 originParant = null;
                 grabbedObject = null;
@@ -97,6 +106,8 @@ public class ClickInteractor : MonoBehaviour
                 if (!isGrabbing && hit.transform.CompareTag("Grabbable"))
                 {
                     Rigidbody hit_Rigidbody = hit.transform.GetComponent<Rigidbody>();
+
+                    audio.PlayOneShot(grabSound);
 
                     originParant = hit.transform.parent;
                     grabbedObject = hit.transform.gameObject;

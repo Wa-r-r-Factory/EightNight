@@ -2332,7 +2332,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!21 &395866385
+--- !u!21 &394673326
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -8079,7 +8079,7 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 395866385}
+  m_sharedMaterial: {fileID: 394673326}
   m_isDefaultMaterial: 0
   m_padding: 1.25
   m_renderer: {fileID: 1601998369}
@@ -8111,7 +8111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 395866385}
+  - {fileID: 394673326}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8715,8 +8715,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 09696f53131ca4d8282a9f620279f6e4, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10277,7 +10277,7 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 395866385}
+  m_sharedMaterial: {fileID: 394673326}
   m_isDefaultMaterial: 0
   m_padding: 1.25
   m_renderer: {fileID: 1987403739}
@@ -10309,7 +10309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 395866385}
+  - {fileID: 394673326}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

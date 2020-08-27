@@ -16,28 +16,34 @@ public class PuzzlePiece : MonoBehaviour
         origin = transform;
     }
 
-    private void OnTriggerStay(Collider other)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("지금이야");
 
-        if (Input.GetMouseButtonDown(0))
+        if (other.CompareTag("PuzzleAnchor"))
         {
-            if (other.CompareTag("PuzzleAnchor"))
+            PuzzleAnchor anchor = other.GetComponent<PuzzleAnchor>();
+
+            if(ID == anchor.anchorID)
             {
-                PuzzleAnchor anchor = other.GetComponent<PuzzleAnchor>();
-
-                if(ID == anchor.anchorID)
-                {
-                    transform.position = anchor.transform.position;
-                    transform.rotation = anchor.transform.rotation;
-
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    if (!isMatched) puzzleBase.Match();
-                    isMatched = true;
-
-                    Debug.Log("닿았다");
-                }
+                Debug.Log("지금!");
+                StartCoroutine(FixPuzzle(anchor));
             }
         }
     }
+
+
+
+    
+    IEnumerator FixPuzzle(PuzzleAnchor anchor)
+    {
+        yield return null;
+        transform.position = anchor.transform.position;
+        transform.rotation = anchor.transform.rotation;
+
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        if (!isMatched) puzzleBase.Match();
+        isMatched = true;
+    }
+
 }

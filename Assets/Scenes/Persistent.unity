@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7c8b3fba3f7e143b394b69528c5db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factorySound: {fileID: 0}
+  factorySound: {fileID: 8300000, guid: b9462bc8eef3f437e9aad3c10a8053f5, type: 3}
 --- !u!1 &1502353932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1743903104223250, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
@@ -932,6 +932,6 @@ MonoBehaviour:
   cameraTransform: {fileID: 993259677}
   defaultCrosshair: {fileID: 21300024, guid: db63fa1c2adceb141974024b30ffa6db, type: 3}
   activeCrosshair: {fileID: 21300042, guid: db63fa1c2adceb141974024b30ffa6db, type: 3}
-  grabSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  buttonSound: {fileID: 0}
+  grabSound: {fileID: 8300000, guid: 9a24148eaf6b6464f95e65fe05871f0b, type: 3}
+  releaseSound: {fileID: 8300000, guid: 131021b40fcf845aea7c0e6be34d5a58, type: 3}
+  buttonSound: {fileID: 8300000, guid: 27b407035b8544856baceda224315e17, type: 3}

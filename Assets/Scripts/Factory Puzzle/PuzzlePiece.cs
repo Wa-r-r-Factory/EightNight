@@ -17,14 +17,14 @@ public class PuzzlePiece : MonoBehaviour
     }
 
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
 
         if (other.CompareTag("PuzzleAnchor"))
         {
             PuzzleAnchor anchor = other.GetComponent<PuzzleAnchor>();
 
-            if(ID == anchor.anchorID)
+            if(ID == anchor.anchorID && !transform.parent.CompareTag("MainCamera"))
             {
                 Debug.Log("지금!");
                 StartCoroutine(FixPuzzle(anchor));
